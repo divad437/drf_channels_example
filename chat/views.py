@@ -8,8 +8,9 @@ def index(request):
     if request.method == "POST":
         name = request.POST.get("name", None)
         if name:
-            room = Room.objects.create(name=name)
-            return HttpResponseRedirect(reverse("room", args=(room.id,)))
+            room, _ = Room.objects.get_or_create(name=name)
+            print(room)
+            return HttpResponseRedirect(reverse("chat:room", args=(room.id,)))
     return render(request, "chat/index.html")
 
 

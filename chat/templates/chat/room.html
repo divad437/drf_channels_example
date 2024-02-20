@@ -8,8 +8,11 @@
 <script>
   const room_pk = '{{ room.pk }}';
   const request_id = '{{ request.sessions.session_key }}';
+  console.log(request_id);
 
-  const chatSocket = new WebSocket(`ws://${window.location.host}/ws/chat/`);
+  const chatSocket = new WebSocket(
+    `ws://${window.location.host}/ws/chat/room/`,
+  );
 
   chatSocket.onopen = function () {
     chatSocket.send(

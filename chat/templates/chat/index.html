@@ -1,9 +1,10 @@
 {% extends "chat/layout.html" %} {% block content %} What chat room would you
 like to enter?
 <br />
-<form method="post">
+<form method="post" action="{% url 'chat:index' %}">
+  {% csrf_token %}
   <input id="room-name-input" name="name" type="text" size="100" />
   <br />
-  <input id="room-name-submit" type="button" value="Enter" />
+  <input id="room-name-submit" type="submit" value="Enter" />
 </form>
 {% endblock content %}
