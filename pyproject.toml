@@ -20,4 +20,4 @@ known_first_party = [
     "structural",
     "behavior"
 ]
-skip = [".venv/"]
+skip = [".venv/", "migrations/"]
